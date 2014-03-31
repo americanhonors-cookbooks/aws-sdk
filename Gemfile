@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 
 group :development do
+  gem 'aws-sdk', '~> 1.38.0'
   gem 'rake', '~> 10.2.0'
+  gem 'unf', '~> 0.1.3'
 end
 
 group :lint do
