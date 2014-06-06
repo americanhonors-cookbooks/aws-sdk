@@ -1,5 +1,6 @@
 # aws-sdk Cookbook
 
+[![Cookbook Version](http://img.shields.io/cookbook/v/aws-sdk.svg)][cookbook]
 [![Build Status](https://travis-ci.org/americanhonors-cookbooks/aws-sdk.svg?branch=master)][build-status]
 [![Dependency Status](https://gemnasium.com/americanhonors-cookbooks/aws-sdk.svg)][dependency-status]
 
@@ -86,6 +87,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ```
 
+[cookbook]: http://community.opscode.com/cookbooks/aws-sdk
 [build-status]: https://travis-ci.org/americanhonors-cookbooks/aws-sdk
 [dependency-status]: https://gemnasium.com/americanhonors-cookbooks/aws-sdk
 [aws-sdk-gem]: https://aws.amazon.com/sdkforruby/
