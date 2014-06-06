@@ -14,6 +14,12 @@ env:
     - EC2_SSH_KEY_PATH="$HOME/.ssh/id_ec2"
     - KITCHEN_YAML=".kitchen.cloud.yml"
 
+    # AWS_ACCESS_KEY_ID
+    - secure: KnuOoCgGnHNXU/B3fk+G36dnuwGQGHjM9Y+TTjx9k3V1p/rqbDBs/DsybEXMIAVCpWHzfteKlVs4Z1gP3qMkuFc0OaGSa6+pR9XDUzIXhtdxAx1W3k0DCdrw7O45cKruJOxI46TgUEpzvNlXiiXtwCTv4hpqXD/9t6wquFXeMKs=
+
+    # AWS_SECRET_ACCESS_KEY
+    - secure: llPEKy3jew0bmG0yUQAWbdT7nlDTL/gZT+lUlsuxbTK4V86eTMboK003rrZx5YWTLZpEl7IVSjJ98xYXF9yHGvdFQ6znJSwEQvFNeKTGp93OOYYCGcDCxfuNKm+8NdtYCAEM+SN3iJwoiNYxEjF85TfKWTYHbnNFKvmFsOy4OmM=
+
     # EC2_AVAILABILITY_ZONE
     - secure: Ooukjt5OqvvsNt6vNWDfGsYgPzXmzuLcceWeK9OWawEX1EQpbcTWUeZsT8IZFOjOSJhNpbqSrlPLP1sWiC6hlk+8UzLNXnYjK2GB7VDZTZjiAN/HRxFGTpfVY71x/m/ImzxEn6765xqtEzv/BYmzTc+DTWnq9iLg3cNzsnhC+4o=
 
