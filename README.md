@@ -7,11 +7,16 @@ Installs the [aws-sdk][aws-sdk-gem] gem for use in other cookbooks.
 
 ## Requirements
 
+### Dependencies
+
+* [build-essential](https://github.com/opscode-cookbooks/build-essential)
+
 ### Platforms
 
 The following platforms are supported and tested:
 
 * Ubuntu 12.04
+* Ubuntu 14.04
 
 Other Debian distributions are assumed to work.
 
@@ -19,13 +24,16 @@ Other Debian distributions are assumed to work.
 
 ### default
 
-* `node['aws-sdk']['version']` - The version of the aws-sdk gem to install. (Default: `1.38.0`)
+* `node['aws-sdk']['version']` - The version of the aws-sdk gem to install. (Default: `1.42.0`)
+* `node['aws-sdk']['unf_version']` - The Version of the unf gem to install. (Default: `0.1.4`)
 
 ## Recipes
 
 ### default
 
 The default recipe will install the aws-sdk and unf gems into Chef's gem environment.
+
+**Note**: The default recipe overrides the `['build-essential']['compile_time']` attribute to ensure that the necessary development tools are installed for Nokogiri (a dependency of aws-sdk) to compile.
 
 ## Usage
 
@@ -55,36 +63,10 @@ Include the default recipe in your node or role.
 
 ## License & Authors
 
-* Author:: Tony Burns (<tony.burns@americanhonors-cookbooks.org>)
+* Author:: Tony Burns (<tony.burns@quadlearninginc.com>)
 
 ```text
 Copyright (c) 2014 Quad Learning, Inc.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-```
-
-### Opscode Cookbooks
-
-The test-kitchen harness in this cookbook and its documentation was inspired by
-and adapted from the official [Opscode cookbooks][opscode-cookbooks].
-
-* Author:: Joshua Timberman (<joshua@opscode.com>)
-* Author:: Adam Jacob (<adam@opscode.com>)
-* Author:: AJ Christensen (<aj@opscode.com>)
-* Author:: Jamie Winsor (<jamie@vialstudios.com>)
-
-```text
-Copyright 2008-2013, Opscode, Inc
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
