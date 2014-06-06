@@ -15,13 +15,13 @@ env:
     - KITCHEN_YAML=".kitchen.cloud.yml"
 
     # EC2_AVAILABILITY_ZONE
-    secure: Ooukjt5OqvvsNt6vNWDfGsYgPzXmzuLcceWeK9OWawEX1EQpbcTWUeZsT8IZFOjOSJhNpbqSrlPLP1sWiC6hlk+8UzLNXnYjK2GB7VDZTZjiAN/HRxFGTpfVY71x/m/ImzxEn6765xqtEzv/BYmzTc+DTWnq9iLg3cNzsnhC+4o=
+    - secure: Ooukjt5OqvvsNt6vNWDfGsYgPzXmzuLcceWeK9OWawEX1EQpbcTWUeZsT8IZFOjOSJhNpbqSrlPLP1sWiC6hlk+8UzLNXnYjK2GB7VDZTZjiAN/HRxFGTpfVY71x/m/ImzxEn6765xqtEzv/BYmzTc+DTWnq9iLg3cNzsnhC+4o=
 
     # EC2_SECURITY_GROUP_ID
-    secure: PyvJt/vdoMJBjrK+zF2pJNt7BUjxk7hLj8fYwr3WiTM80qiTsVRBWa5tdZc3XiUptTQnzearGFvGk1IefHZjR+sRBm1/h+LBryVxyu7O9YY0b00qW7Bj64AhH+dneoYQznT+V1pNJdUm3rLiykFVyw/jd2oP5HFMU1mtE306twg=
+    - secure: PyvJt/vdoMJBjrK+zF2pJNt7BUjxk7hLj8fYwr3WiTM80qiTsVRBWa5tdZc3XiUptTQnzearGFvGk1IefHZjR+sRBm1/h+LBryVxyu7O9YY0b00qW7Bj64AhH+dneoYQznT+V1pNJdUm3rLiykFVyw/jd2oP5HFMU1mtE306twg=
 
     # EC2_SSH_KEY_ID
-    secure: saFAtWLD3u1yamTAPgIHRy6yzg3+e4dMzIk/4/InRGl59s/z8+pWkQFsIBWBHYeFw+EmS3mX9ArVzaIKjjcb0cYPyAEIC+JZ1OJuwst6Muac4M9Fzb9jwKuRa/3DQgPZKLVQ87GWctCwCPSlTrhPgNxVC//QD1OD4z/WHMZjB14=
+    - secure: saFAtWLD3u1yamTAPgIHRy6yzg3+e4dMzIk/4/InRGl59s/z8+pWkQFsIBWBHYeFw+EmS3mX9ArVzaIKjjcb0cYPyAEIC+JZ1OJuwst6Muac4M9Fzb9jwKuRa/3DQgPZKLVQ87GWctCwCPSlTrhPgNxVC//QD1OD4z/WHMZjB14=
 
     # EC2_SSH_KEY_CHUNK_{0..25}
     - secure: drMYvWx69ad17UtBZya5JUDW1L2O88Vg9R/LYtv61edttnj5xjF/vpaFbxCsP91g5iwmr7LMeOdYMP1vaMa8P3xGyN6K0LPctDY6H2N7/GgYmzcSfOvq7DQ6VVBPzVNQU/GpGTK8LLBkjT2ny6g1CHlhkOYHLdtRqUWf/u5jkkI=
