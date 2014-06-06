@@ -17,13 +17,13 @@
 require 'spec_helper'
 
 describe 'aws-sdk::default' do
-  let(:chef_run) { ChefSpec::Runner.new(platform: 'ubuntu', version: '12.04').converge(described_recipe) }
+  let(:chef_run) { ChefSpec::Runner.new(platform: 'ubuntu', version: '14.04').converge(described_recipe) }
 
   it 'installs the aws-sdk gem' do
-    expect(chef_run).to install_chef_gem('aws-sdk').with(version: '1.38.0')
+    expect(chef_run).to install_chef_gem('aws-sdk').with(version: '1.42.0')
   end
 
   it 'installs the unf gem' do
-    expect(chef_run).to install_chef_gem('unf')
+    expect(chef_run).to install_chef_gem('unf').with(version: '0.1.4')
   end
 end

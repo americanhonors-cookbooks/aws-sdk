@@ -17,8 +17,13 @@
 # limitations under the License.
 #
 
+node.override['build-essential']['compile_time'] = true
+include_recipe 'build-essential'
+
 chef_gem 'aws-sdk' do
   version node['aws-sdk']['version']
 end
 
-chef_gem 'unf'
+chef_gem 'unf' do
+  version node['aws-sdk']['unf_version']
+end
