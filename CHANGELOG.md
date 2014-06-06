@@ -3,7 +3,8 @@
 This file is used to list changes made in each version of the aws-sdk cookbook.
 
 ## v1.42.0 (2014-04-03)
-- Add dependency on build-essential
+- Add dependency on apt cookbook
+- Add dependency on build-essential cookbook
 - Add integration tests
 - Add support for Ubuntu 14.04
 - Update aws-sdk chef_gem resource to 1.42.0
