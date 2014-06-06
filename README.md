@@ -9,6 +9,7 @@ Installs the [aws-sdk][aws-sdk-gem] gem for use in other cookbooks.
 
 ### Dependencies
 
+* [apt](https://github.com/opscode-cookbooks/apt)
 * [build-essential](https://github.com/opscode-cookbooks/build-essential)
 
 ### Platforms
@@ -33,7 +34,7 @@ Other Debian distributions are assumed to work.
 
 The default recipe will install the aws-sdk and unf gems into Chef's gem environment.
 
-**Note**: The default recipe overrides the `['build-essential']['compile_time']` attribute to ensure that the necessary development tools are installed for Nokogiri (a dependency of aws-sdk) to compile.
+**Note**: The default recipe overrides the `['apt']['compile_time_update']` and  `['build-essential']['compile_time']` attributes to ensure that the necessary development tools are installed for Nokogiri (a dependency of aws-sdk) to compile.
 
 ## Usage
 
@@ -51,6 +52,10 @@ Include the default recipe in your node or role.
     rake style:chef           # Lint Chef cookbooks
     rake style:ruby           # Run Ruby style checks
     rake travis               # Run all tests on Travis
+
+### Versioning
+
+The aws-sdk cookbook will always use the version of the aws-sdk gem set in the `[aws-sdk][version]` attribute for versioning.
 
 ## Contributing
 

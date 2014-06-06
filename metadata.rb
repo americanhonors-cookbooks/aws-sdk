@@ -26,6 +26,7 @@ version '1.42.0'
   supports os
 end
 
+depends 'apt', '~> 2.4.0'
 depends 'build-essential', '~> 2.0.2'
 
 recipe 'aws-sdk', 'Installs the aws-sdk gem for use with Chef.'
