@@ -1,10 +1,58 @@
 language: ruby
 rvm:
-- 2.1.1
+  - 2.1.2
 before_install:
-- gem install bundler --pre
+  - echo -n $EC2_SSH_KEY_CHUNK_{0..25} >> ~/.ssh/id_ec2.base64
+  - cat ~/.ssh/id_ec2.base64 | tr -d ' ' | base64 --decode > ~/.ssh/id_ec2
+bundler_args: --without kitchen_vagrant
 script:
-- bundle exec rake travis
+  - bundle exec rake travis
+after_script:
+  - bundle exec kitchen destroy
+env:
+  global:
+    - EC2_SSH_KEY_PATH="$HOME/.ssh/id_ec2"
+    - KITCHEN_YAML=".kitchen.cloud.yml"
+
+    # EC2_AVAILABILITY_ZONE
+    secure: Ooukjt5OqvvsNt6vNWDfGsYgPzXmzuLcceWeK9OWawEX1EQpbcTWUeZsT8IZFOjOSJhNpbqSrlPLP1sWiC6hlk+8UzLNXnYjK2GB7VDZTZjiAN/HRxFGTpfVY71x/m/ImzxEn6765xqtEzv/BYmzTc+DTWnq9iLg3cNzsnhC+4o=
+
+    # EC2_SECURITY_GROUP_ID
+    secure: PyvJt/vdoMJBjrK+zF2pJNt7BUjxk7hLj8fYwr3WiTM80qiTsVRBWa5tdZc3XiUptTQnzearGFvGk1IefHZjR+sRBm1/h+LBryVxyu7O9YY0b00qW7Bj64AhH+dneoYQznT+V1pNJdUm3rLiykFVyw/jd2oP5HFMU1mtE306twg=
+
+    # EC2_SSH_KEY_ID
+    secure: saFAtWLD3u1yamTAPgIHRy6yzg3+e4dMzIk/4/InRGl59s/z8+pWkQFsIBWBHYeFw+EmS3mX9ArVzaIKjjcb0cYPyAEIC+JZ1OJuwst6Muac4M9Fzb9jwKuRa/3DQgPZKLVQ87GWctCwCPSlTrhPgNxVC//QD1OD4z/WHMZjB14=
+
+    # EC2_SSH_KEY_CHUNK_{0..25}
+    - secure: drMYvWx69ad17UtBZya5JUDW1L2O88Vg9R/LYtv61edttnj5xjF/vpaFbxCsP91g5iwmr7LMeOdYMP1vaMa8P3xGyN6K0LPctDY6H2N7/GgYmzcSfOvq7DQ6VVBPzVNQU/GpGTK8LLBkjT2ny6g1CHlhkOYHLdtRqUWf/u5jkkI=
+    - secure: B/yrgbmYxExeJnkDvQhToP5MacrLtseKbQ+m9xilMcruiWHSGIP1+u2TZaewzPbqhJztle4a9yppvcOhiICb9/S7pC6rRtSYo7pc/PgHPdB8bZqsNToIGpYoDH0364RZTVNbGt6dtr0nPbeRcPwbssUXP9haffgIwJJ52h5SEIk=
+    - secure: c1I+X+GABu9dNXKfEc3pEB3NC67Ahm4TSKauaQyDpfck/xk1pvkx3BhP+A3WuN9DgttMqZsJqsYFZ/n2SSwXsIHUfRuzuthZoR0/TvrNCEpZApUEnZIhfmutT28xG3zaVzNyKIPqgQV8Wkm9dRvxqZaoB3UvX6cspci8+QAFTfE=
+    - secure: FEG1pIuM1e9Mqu410IrtGvyk3xdWS06ity0Nt+oaK+v6aA51YRlJnVEZiIUGg8Of2kYnjGCDHIF6VLDduSr3pUB+9gn1/mZbS+SiqtagMqjy8TWupqihGw6bCqNxMNf3uIw/sKmdiArsWuLTKGHMLXLFUGQCB+yxKV8ZhJ7vAn4=
+    - secure: SxwJygnO880yk1pT3gTQ3fXIM5ehnwWsDd6FJTLPrNtrkyT7Sg0yorvflTNUCSKQr0PYAaSBJk28sHfHbiZ5NMrg4/D3+PCD8sw/B3l1Ke6wMyoQDasLnPEZfkr65URCJmuKZFewne0J8VLzOGJ7I3rMRiMdc++wzZiKLwSm93c=
+    - secure: aloo9nFg2Nx9C8ktua8yJbMX77B9lsZqsfGoMP4ddy8MmnB7Arw2CS5ea8r4G8y4WxIEKcoEdmmeorA1ATxAyaL0AEYecjc10pKoawzmHPXtGw1kt6AefV8hRAsHaM1hjEoa6KTenwJZ8tLaslKYQDZJHm08XGEea8tNOWOQnQw=
+    - secure: GoUCqb5iBi7tgib695XvgTg6WqCpLU0bQ/PZUQnfb50OUnuItCUoeK56hsbBg5uwUWgmTCrFewfkdtIGUiqivVtW2/KF5XTQeSlx367DG50MIZtv5+9ND/EuVii+/F7LUuSYeWWFAOYQViOCJaL4bjDLpCAPuJoEHI5XHs0Jsgs=
+    - secure: oS7Cu/dVw1Yv8KLsS4UdLEpy1gI+QCM143IdMMeO8wWc1Dfnwy1LlqDvINAqbjwM1S+BwrMeEzkw4OA982pax7V19ScmgqG03qx7Ehmhk5COLX4Uiz0NdMyTuAZkKTJFWVCNsfRPKbn63MT1mZ1FyndoKSC3PIaoyPr87/Uz/e4=
+    - secure: HratM7EwmREmW473mzAm+3I3H8yBz82qCEjpxHJVYqu+xkDzNBjC6GvZxyfNMwuoCeyskQg1yjVQkYZEfvWKz6y0ZuLJ0OcAJCq1wraT4ShQ4MdKbCeSul1nmNIOLWq6lL4XdDLNxdAjp1ff5RuznSOe6jF2xpBd9IcNgQYjVPg=
+    - secure: HnoS7yPHf3ylfAmn47uHcPMo++a0/ES7Mab47t9Yb4eM2DlAJOA4b5SdALZTz0DMTrFkK8bMA6rMTznrYgEnfM0vGLG1ySuhFQ/+sQSfSDYQ6w/E3vbRQebYcl0vwgMkgzP1BZHCb3FfWLcBdEShuVvo4lgAqNqhkFsy0sCtg2s=
+    - secure: Th3j0LwdLV4yL6b9lPZMDsB6cakSxy0BSeIsA1qGTACrEIZxPRP0TPPfygnr1i5LJpJlZ7MGeUsQAjo9Hb9eOfzgsmHj2bnP0TJt+Y1JpdxzQYL4c9MkHezvKy4LBTR5OTwBmwO9Z9obZe8WyipygYuuY2JLZm4zcymv9rWi+Qo=
+    - secure: hMNsAGpSdnIkIOLi27122trJimN1YWflGqRyCAClTBloNjanQUbT5Vgnf4Oq67c9psaPOd6eVytY7/UmUa+qupuXi4J0VQXkMJhz2Y0a0Ib7omkyRkm9mcihokiXA45EoiABl0nX8WX6VfcX/etYiElINFI2sgmf9a2hSvxYoDU=
+    - secure: PqmxrX+nN0VFMUtbIEQRVCeTuhHIte2waC0nBNRHUeAtkbTNZrmqM5fPMxm+DSBz6uNd4yT7a2XgrL54i1KT8ZPI4bIGCusBBYgv5v32iuUmUcUoYXANU9qpJ0uTiqZtH+A0EgeCchwZLiY9Dp9ksI788PCJv5Rc/x9gtRC0Bho=
+    - secure: tEcdINJqR6zn0jFdjD20paPSi/Of1NHp1ZzM51C25joO7rBFXhwATZZkwcATw6NkxQ6AbjJc+spXq0JFNZpQKUCfHSdQjibpqyDeVjaCgu671MRgejEFdfpcTP2CIAyC/eAeDf07Z+9St8JxJu5/IcUnkqtr11WO/FZZJXG2OyQ=
+    - secure: DLScOJ8CJWUL+JmqXuMQKEOl1CMsbrQLgSoIRJXR1D6Kbs9dfjl4Z/A2C02HNuh+8Zml54wBKji5ZQ/ocMbwKd2XCiKo5LwZA9yGlajxw+1EphAwN8SECoq8m3cJZ+DIJW6IXqfuM0NXWpJ4xULr6Uc9zX8IGk6cNBafjzAXv9s=
+    - secure: IbVCiHwCTKHGxuCGIBVjY3jeKeZoOZlI4kk9MAgbLfCR691Y5Gtp70pS/ufXoYeIxOnzoS1doZKJBqNht/eq0EB08N9QYXEXc2bAI++hA3LvMAe2lRuJowq48Z7VRJcVbMyqGc6lKNOY1doKsf0/B6k8eP0j9zzbglk6MqiMKrs=
+    - secure: X8lQ5JRw9XkUUA+FKH/i9q96LIzCuUyy4/qbWWFobFzzWS+ZEuKApHkduf8XngE+fqV6gAhUSNpBJrJFaV7CPW1flVmrDv7coxutlxpAuagBqBmkupdPHj5fOfqmMmla5/jMWj6YxUGp+2MTffgLaXzB0wM/JmfDwMJL6VYtpXk=
+    - secure: Sq3u1oTN0jnRj1EhN9U2VBGNIKxwP4/H2YtvalOYZohGBXp/UnCit433vWA74EuxxlRI8AhU7yABSRCy7uCyJZa8lBc3XVNyUjQlMw6LxEWrb5Q5Pn846ulMXp8UGV61exLrID/RKWxaCilQl/1uVMOWRjUL2WzzOHU49OM2c1E=
+    - secure: LN39nQtpYFUqg2bExzarsmE1jMJn9inGIi1LOlB4oZcw6ncN3ic+Jq/EP6j4V/MHPhnWKTRH62dvP4Qm2pjRJts/gdOxbtmeKP2ZcBNY/gaqbwBH9a0y233nbvf5Jxo3C/tyh6zu1iGPRjjUAWg3CzU0wE/++azFaBu0fz6iTng=
+    - secure: B3hNZ7GbaiBnKaaKVUzytsRKA4YygySz9jT0gWF4OhZds6p0AvzElxfP0WUHpWN024vzBwAsLyiAXf3LuAeb9lX1opQNuNH2/q3JbAXbuYCJOaMN7sVHT2EQjVtic1HHnJTZ6PvFbP/Wsh6oaOamhJg1ovq2Bti1TOL+i2UgBEA=
+    - secure: OF7Lie5lOXvMAJXmF8+TGk9ItXaR12ZqAhKkT7geNjge+bVYSY8b7JK3cf5VCegeEcjLz/JHqnFn245SHZ8oxNkAw0929+eL5SReyLue/YVCt0q/9YTxfpSrXm3v9ttcrkAQle492E48CSixcNCEMkF00U42yI0eGZz8TPYVdTs=
+    - secure: I1bxJNgzKb/bgI5lJYBS7Nfw/mI/CvU+fAJmxJcYNUezOqg/Le/whvbw5vD6en/Il+r6MZ4IqToydKuVK0okz9eeQKdjZPac7I80Uo2mv1Bz0ecpDt/qMN8Bv27MhzVIW4ShVMtqxyz1jOW7jG/xzaTZGWuG6i64PSMChuxJDuo=
+    - secure: QmPSmzRRGWvirOsGU9uTZ4GY9PmDqchQakQ05vXMDqYYZWx/XX+uBXOz0QZwaCuDw//66zTl1DMEkw1R+zAJGNF0xH0bfGOYgonaUWSJrw7psi3adzpAL2JUA8UoKBkaOcroCfIcfcMseOJuaJ/Vjmd1UziOiEc7mEn789vo0nA=
+    - secure: RuNB9ZiDjFCglY9xKqtvq7nYajV9S9rD8ETkiGucXkRB4COoGWUKrXFoRfpSnFOSxAGknaKNmXykcaOjvfaBohT7DTxUvvwAGIR2RI1YfRHn+9M3YrxWxS7I8MEZRG9PMZiTNY376U3CTTxGvW194rNJp8LUx9C2wQ+hCI/u70Q=
+    - secure: pxlr3ll3h7XDqbknmK2ddIVAxDKX16t4vgrYJwPh4FglpT9LOHEkG6MLJDAsOZ+g52VEnIb/4Kiy715KoaybSjBqXAA5oyVmgwM8d7ArOveIx0xgg330xzZeAKsdTy11cJ5BP7K9Pvi9aK83DIYuwj2/SRKLSHk9rhJ3addrX0Q=
+    - secure: P+SJGxQYrKOUggC+dOskRQIxJxW0co3VBxaoUtqKl2rV0nJs66BoyhCaf0XpX3qO5EZeV4sEpYmpcHfac5Twz+zAb5SlOyxm39kb68uGCctjlLAfvNb3FR7Fun+IcIomaWKWJ4dSEYA1ukV3Vfjd2FF0YCrYWmUy0glBxmtXfSE=
+  matrix:
+    - KITCHEN_INSTANCE="default-ubuntu-1204"
+    - KITCHEN_INSTANCE="default-ubuntu-1404"
 notifications:
   email:
   - techops@americanhonors.org

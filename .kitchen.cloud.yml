@@ -1,0 +1,29 @@
+---
+driver_config:
+  name: ec2
+  availability_zone: <%= ENV['EC2_AVAILABILITY_ZONE'] %>
+  security_group_ids: [<%= ENV['EC2_SECURITY_GROUP_ID'] %>]
+  aws_ssh_key_id: <%= ENV['EC2_SSH_KEY_ID'] %>
+  associate_public_ip: true
+  ssh_key: <%= ENV['EC2_SSH_KEY_PATH'] %>
+
+provisioner:
+  name: chef_solo
+  require_chef_omnibus: latest
+  solo_rb:
+    ssl_verify_mode: verify_peer
+
+platforms:
+  - name: ubuntu-12.04
+    driver:
+      image_id: ami-5c33c734
+      username: ubuntu
+  - name: ubuntu-14.04
+    driver:
+      image_id: ami-3adb2f52
+      username: ubuntu
+
+suites:
+  - name: default
+    run_list:
+      - recipe[aws-sdk_test]
