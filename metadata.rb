@@ -14,16 +14,18 @@
 # limitations under the License.
 #
 
-name             'aws-sdk'
-maintainer       'Copyright (c) 2014 Quad Learning, Inc.'
+name 'aws-sdk'
+maintainer 'Copyright (c) 2014 Quad Learning, Inc.'
 maintainer_email 'techops@americanhonors.org'
-license          'Apache 2.0'
-description      'Installs aws-sdk'
+license 'Apache 2.0'
+description 'Installs the aws-sdk for Chef'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '1.38.0'
+version '1.42.0'
 
 %w(ubuntu).each do |os|
   supports os
 end
 
-recipe 'aws-sdk', 'Installs the aws-sdk gem.'
+depends 'build-essential', '~> 2.0.2'
+
+recipe 'aws-sdk', 'Installs the aws-sdk gem for use with Chef.'
