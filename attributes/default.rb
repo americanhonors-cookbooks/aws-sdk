@@ -17,4 +17,5 @@
 # limitations under the License.
 #
 
-default['aws-sdk']['version'] = '1.38.0'
+default['aws-sdk']['version'] = '1.42.0'
+default['aws-sdk']['unf_version'] = '0.1.4'
