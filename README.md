@@ -1,3 +1,10 @@
+# DEPRECATED
+
+**This cookbook is no longer maintained and is deprecated in favor of the [Opscode aws
+cookbook](https://github.com/opscode-cookbooks/aws)**
+
+**If you are interested in assuming maintenance of this cookbook, please [open an issue](https://github.com/opscode-cookbooks/aws/issues).**
+
 # aws-sdk Cookbook
 
 [![Cookbook Version](http://img.shields.io/cookbook/v/aws-sdk.svg)][cookbook]
